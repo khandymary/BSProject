@@ -1,0 +1,38 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar fxLayoutAlign="center center">
+      <div>
+        <h1>My Project</h1>
+      </div>
+    </mat-toolbar>
+
+    <form [formGroup]="loginForm" fxLayoutAlign="stretch" fxLayout="column" class="login-form" (ngSubmit)="loginUser()">
+      <mat-form-field>
+        <input matInput placeholder="username@gmail.com" formControlName="username">
+        <mat-error *ngIf="username && username.invalid && username.touched">Please enter valid username.</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input matInput [type]="hide?'password':'text'" placeholder="password" formControlName="password"
+          maxlength="50">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password && password.invalid && password.touched">Please enter password.</mat-error>
+
+      </mat-form-field>
+      <a (click)="onChangePassword()" class="changepwd">Change Password?</a>
+
+
+      <div><button mat-raised-button type="submit" class="login_btn">Login</button></div>
+      <div class="signup_text">
+        <span>Don't have an account? </span><a (click)="onSignUp()" class="signup"> Sign Up</a>
+      </div>
+
+
+    </form>
+
+  </mat-card>
+</div>

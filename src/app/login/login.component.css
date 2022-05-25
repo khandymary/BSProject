@@ -1,0 +1,54 @@
+.main-div mat-card
+{
+    padding: 0px;
+    height: 45%;
+}
+.login-form
+{
+     padding: 20px;
+}
+/* .heading
+{
+   text-align: center;
+} */
+
+.signup {
+    color: #3e3e7a;
+    font-weight: bold;
+    font-size: small;
+    margin-left:5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .login_btn {
+    background-color: #3e3e7a;
+    color: #ffffff;
+    margin-left: 5px;
+    width: 100%;
+  }
+  
+  .right {
+    align-self: flex-end;
+    text-decoration: none;
+    font-size: small;
+    /* font-weight: bold; */
+    color: #3e3e7a;
+     /* margin-top: 5px;
+    margin-bottom: 10px;   */
+  }
+  .pointer {
+    cursor: pointer;
+  }
+  .signup_text {
+    display: flex;
+    flex: 1 1 auto;
+    font-weight: bold;
+    font-size: small;
+    color: #353536;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .changepwd
+  {
+    cursor: pointer;
+  }

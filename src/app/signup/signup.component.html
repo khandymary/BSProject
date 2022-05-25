@@ -1,0 +1,75 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar fxLayoutAlign="center center">
+            <div>
+                <h1>Create Account</h1>
+            </div>
+        </mat-toolbar>
+        <form [formGroup]="registerForm" fxLayoutAlign="stretch" fxLayout="column">
+            <mat-form-field>
+
+                <input matInput type="text" placeholder="First Name" formControlName="firstName" class="form-control" />
+                <mat-error *ngIf="firstName && firstName.invalid && firstName.touched">Please enter first name.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="Last Name" formControlName="lastName" class="form-control" />
+                <mat-error *ngIf="lastName && lastName.invalid && lastName.touched">Please enter last name.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" placeholder="username@gmail.com" formControlName="username"
+                    class="form-control" />
+                <mat-error *ngIf="username && username.invalid && username.touched">Please enter valid e-mail.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [type]="hide?'password':'text'" placeholder="password" formControlName="password"
+                    class="form-control" />
+                <mat-error *ngIf="password && password.invalid && password.touched">Use 8 characters with a mix of letters, numbers & symbols.
+                </mat-error>
+
+
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <input matInput [type]="hideConfirm?'password':'text'" placeholder="Confirm Password"
+                    formControlName="confirmpassword" class="form-control" />
+                <mat-error *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.touched">please enter
+                    confirm password.</mat-error>
+                    <mat-error *ngIf="confirmpassword.confirmedValidator">Password and Confirm Password must be match.</mat-error>
+
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Roles</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option>None</mat-option>
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="viewer">Viewer</mat-option>
+                    <mat-option value="editor">Editor</mat-option>
+                </mat-select>
+                <mat-error *ngIf="role && role.invalid && role.touched">please enter role.
+                       
+                    </mat-error>
+            </mat-form-field>
+
+
+            <button class="create-account" mat-raised-button type="submit">Create Account</button>
+            <!-- <div ngClass="divider"></div> -->
+            <div class="login">Have an account? <a routerLink="/login">Login</a></div>
+
+
+        </form>
+    </mat-card>
+</div>

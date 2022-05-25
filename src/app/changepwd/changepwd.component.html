@@ -1,0 +1,41 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+      <mat-toolbar fxLayoutAlign="center center">
+        <div>
+          <h1>Change Password</h1>
+        </div>
+      </mat-toolbar>
+  
+      <form [formGroup]="changePasswordForm" fxLayoutAlign="stretch" fxLayout="column">
+        <mat-form-field>
+          <input matInput [type]="hide?'password':'text'" placeholder="Current Password" formControlName="currpwd">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="currpwd && currpwd.invalid && currpwd.touched">Please enter current password.</mat-error>
+        </mat-form-field>
+  
+  
+        <mat-form-field>
+          <input matInput [type]="hidenew?'password':'text'" placeholder=" New Password" formControlName="newpassword"
+            maxlength="50">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hidenew ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="newpassword && newpassword.invalid && newpassword.touched">Please enter new password.</mat-error>
+  
+        </mat-form-field>
+        
+  
+  
+        <div><button mat-raised-button type="submit" class="changepwd_btn">Save Password</button></div>
+        <div><a routerLink="/login">Login</a></div>
+  
+  
+      </form>
+  
+    </mat-card>
+</div>
+
