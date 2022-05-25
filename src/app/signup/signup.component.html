@@ -27,7 +27,8 @@
             <mat-form-field>
                 <input matInput [type]="hide?'password':'text'" placeholder="password" formControlName="password"
                     class="form-control" />
-                <mat-error *ngIf="password && password.invalid && password.touched">Use 8 characters with a mix of letters, numbers & symbols.
+                <mat-error *ngIf="password && password.invalid && password.touched">Use 8 characters with a mix of
+                    letters, numbers & symbols.
                 </mat-error>
 
 
@@ -41,9 +42,10 @@
             <mat-form-field>
                 <input matInput [type]="hideConfirm?'password':'text'" placeholder="Confirm Password"
                     formControlName="confirmpassword" class="form-control" />
-                <mat-error *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.touched">please enter
-                    confirm password.</mat-error>
-                    <mat-error *ngIf="confirmpassword.confirmedValidator">Password and Confirm Password must be match.</mat-error>
+                <mat-error *ngIf="confirmpassword && confirmpassword.invalid && confirmpassword.touched">password must match</mat-error>
+                <!-- <mat-error *ngIf="
+                    confirmpassword('NoPassswordMatch') && confirmpassword('NoPassswordMatch')?.touched)">password
+                    field not matching.</mat-error> -->
 
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
@@ -60,8 +62,8 @@
                     <mat-option value="editor">Editor</mat-option>
                 </mat-select>
                 <mat-error *ngIf="role && role.invalid && role.touched">please enter role.
-                       
-                    </mat-error>
+
+                </mat-error>
             </mat-form-field>
 
 
